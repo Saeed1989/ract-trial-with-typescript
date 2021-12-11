@@ -1,10 +1,11 @@
 import * as React from "react";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import "./style-sessions.css";
-import { ProductDetailsShell, ProductListShell } from "./Products";
 import { AboutUs } from "../about/AboutUs";
 import { Catagories } from "./Catagories";
 import ErrorBoundary from "./ErrorBoundary";
+import { ProductDetailsShell } from "./product-details/ProductDetailsShell";
+import { ProductListShell } from "./product-list/ProductListShell";
 
 export function ProductShell() {
   const { path } = useRouteMatch();
