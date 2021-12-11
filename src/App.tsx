@@ -10,7 +10,7 @@ import { AboutUs } from "./components/about/AboutUs";
 import { Admin } from "./components/admin/Admin";
 //import { useAppInit } from "./useAppInit";
 
-function AppRouter() {
+export const AppRouter: React.FC = () => {
   //const [loading] = useAppInit();
   return (
     <div id="wrapper">
@@ -37,14 +37,14 @@ function AppRouter() {
       </Router>
     </div>
   );
-}
+};
 
-function App() {
+export const App: React.FC = () => {
   return (
     <AuthProvider>
       <AppRouter />
     </AuthProvider>
   );
-}
+};
 
 export default App;

@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link, useParams } from "react-router-dom";
 import { NetworkUtils } from "../../../utils/common/NetworkUtils";
 
-export const ProductDetails = () => {
+export const ProductDetails: React.FC = () => {
   const { productId } = useParams() as any;
   const data = NetworkUtils.getPlayerById(+productId);
 

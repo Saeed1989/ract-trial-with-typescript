@@ -1,7 +1,12 @@
 import * as React from "react";
 import { useRouteMatch, Link } from "react-router-dom";
 
-function NavigationLink(props: { to: string; label: string }) {
+type Props = {
+  to: string;
+  label: string;
+};
+
+export const NavigationLink: React.FC<Props> = (props) => {
   return (
     <Link
       style={{
@@ -19,9 +24,9 @@ function NavigationLink(props: { to: string; label: string }) {
       {props.label.toLowerCase()}
     </Link>
   );
-}
+};
 
-export function Catagories() {
+export const Catagories: React.FC = () => {
   const { url } = useRouteMatch();
 
   return (
@@ -46,4 +51,4 @@ export function Catagories() {
       </div>
     </section>
   );
-}
+};

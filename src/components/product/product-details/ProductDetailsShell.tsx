@@ -1,7 +1,7 @@
 import * as React from "react";
 import { ProductDetails } from "./ProductDetails";
 
-export function ProductDetailsShell() {
+export const ProductDetailsShell = () => {
   return (
     <>
       <div className="container">
@@ -11,4 +11,4 @@ export function ProductDetailsShell() {
       </div>
     </>
   );
-}
+};
