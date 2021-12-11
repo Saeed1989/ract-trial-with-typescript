@@ -3,7 +3,7 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 import "./style-sessions.css";
 import { ProductDetailsShell, ProductListShell } from "./Products";
 import { AboutUs } from "../about/AboutUs";
-import { ProductList } from "./Catagories";
+import { Catagories } from "./Catagories";
 import ErrorBoundary from "./ErrorBoundary";
 
 export function ProductShell() {
@@ -12,17 +12,14 @@ export function ProductShell() {
   return (
     <ErrorBoundary>
       <Switch>
-        <Route path={`${path}/products/:speaker_id`}>
+        <Route path={`${path}/:catId/:productId`}>
           <ProductDetailsShell />
         </Route>
-        <Route path={`${path}/products`}>
+        <Route path={`${path}/:catId`}>
           <ProductListShell />
         </Route>
-        <Route path={`${path}/about`}>
-          <AboutUs />
-        </Route>
         <Route path={`${path}`}>
-          <ProductList />
+          <Catagories />
         </Route>
       </Switch>
     </ErrorBoundary>

@@ -21,7 +21,7 @@ function NavigationLink(props: { to: string; label: string }) {
   );
 }
 
-export function ProductList() {
+export function Catagories() {
   const { url } = useRouteMatch();
 
   return (
@@ -38,9 +38,9 @@ export function ProductList() {
               justifyContent: "center",
             }}
           >
-            <NavigationLink to={`${url}/products`} label="Catagory 1" />
-            <NavigationLink to={`${url}/products`} label="Catagory 2" />
-            <NavigationLink to={`${url}/products`} label="Catagory 3" />
+            <NavigationLink to={`${url}/0`} label="Catagory 1" />
+            <NavigationLink to={`${url}/1`} label="Catagory 2" />
+            <NavigationLink to={`${url}/2`} label="Catagory 3" />
           </div>
         </div>
       </div>

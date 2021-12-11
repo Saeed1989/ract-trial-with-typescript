@@ -1,15 +1,14 @@
 import * as React from "react";
 import "./style-sessions.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useRouteMatch } from "react-router-dom";
 import { NetworkUtils } from "../../utils/common/NetworkUtils";
 import { Product } from "../../models/product.model";
 
 const ProductList: any = () => {
   const data: Product[] = NetworkUtils.getPlayers();
+  const { url } = useRouteMatch();
 
-  console.log(data);
-
-  return data.map(({ id, name, price: bio, details: matches }) => (
+  return data.map(({ id, name }) => (
     <div
       key={id}
       className="col-xs-12 col-sm-6 col-md-6"
@@ -19,39 +18,35 @@ const ProductList: any = () => {
         <div className="panel-heading">
           <h3 className="panel-title">{name}</h3>
         </div>
-        <div className="panel-body">
-          <h5>{bio}</h5>
-        </div>
-        <div className="panel-body">
-          <h5>{matches}</h5>
-        </div>
+        <Link to={`${url}/${id}`}>{"LINK"}</Link>
       </div>
     </div>
   ));
 };
 
 const ProductDetails = () => {
-  //const { player_id: player_id } = useParams();
-  const data = NetworkUtils.getPlayerById("");
+  const { productId } = useParams() as any;
+  const data = NetworkUtils.getPlayerById(+productId);
 
-  const speaker = data;
-  if (!speaker) {
-    return <div>No speaker.</div>;
+  const product = data;
+  if (!product) {
+    return <div>Product details not found</div>;
   }
 
-  const { id, name, price: bio, details: matches } = speaker;
+  const { id, name, price, details } = product;
 
   return (
     <div key={id} className="col-xs-12" style={{ padding: 5 }}>
       <div className="panel panel-default">
         <div className="panel-heading">
-          <h3 className="panel-title">{name}</h3>
+          <h3 className="panel-title">Name: {name}</h3>
+        </div>
+
+        <div className="panel-body">
+          <h5>Price : {price}</h5>
         </div>
         <div className="panel-body">
-          <h5>{bio}</h5>
-        </div>
-        <div className="panel-body">
-          <h5>{matches}</h5>
+          <h5>Details: {details}</h5>
         </div>
       </div>
     </div>
